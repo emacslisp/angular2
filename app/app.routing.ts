@@ -15,4 +15,5 @@ const appRoutes: Routes = [
         }
 ];
 
+//@example: ng2 - routing - typescript to add all url for all component
 export const routing : ModuleWithProviders = RouterModule.forRoot(appRoutes);

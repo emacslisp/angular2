@@ -9,6 +9,7 @@ templateUrl: 'courses.html',
   providers: [CourseService, PostService]
 })
 
+//@example: ng2 - templateUrl: 'courses.html', controller class, two way binding and so on
 export class CoursesComponent{
         title = "Courses Component";
         courses;
