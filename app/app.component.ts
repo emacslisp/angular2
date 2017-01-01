@@ -4,7 +4,7 @@ import {CoursesComponent} from './courses.component';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1> <courses></courses>`,
+  template: `<router-outlet></router-outlet>`,
   directives: [CoursesComponent],
 
 })
