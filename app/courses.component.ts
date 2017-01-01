@@ -1,43 +1,40 @@
 import {Component} from '@angular/core';
 import {CourseService} from './courses.service'
+import {PostService} from './post.service'
 
 @Component({
+moduleId: module.id;
 selector: 'courses',
-template: `<h2>Courses</h2>
-<p> {{title}} </p>
-<ul>
-    <li *ngFor="let course of courses">
-        {{course}}
-    </li>
-</ul>
-
-<button (click)="toggleHobbies()">show Hobbies</button>
-
-<div *ngIf="showHobbies">
-   <h3>example </h3>
-   <ul>
-       <li *ngFor="let course of courses">
-        {{course}}
-       </li>
-   </ul>
-</div>
-
-`,
-  providers: [CourseService]
+templateUrl: 'courses.html',
+  providers: [CourseService, PostService]
 })
 
 export class CoursesComponent{
         title = "Courses Component";
         courses;
         showHobbies;
+        name;
+        posts: Post[];
 
-        constructor(courseService : CourseService){
+        constructor(courseService : CourseService, postService: PostService){
                 this.courses = courseService.getCourses();
-                this.showHobbies = true;                
+                this.showHobbies = true;
+
+                postService.getPosts().subscribe(posts => {
+                    this.posts = posts;
+                });
+                
         }
 
         toggleHobbies(){
         console.trace();
                 this.showHobbies = !this.showHobbies;
         }
+}
+
+
+interface Post {
+    id: number;
+    title: string;
+    body: string;
 }
