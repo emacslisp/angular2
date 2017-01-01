@@ -1,0 +1,30 @@
+<h2>Courses</h2>
+<p> Hello {{name}} </p>
+<ul>
+    <li *ngFor="let course of courses">
+        {{course}}
+    </li>
+</ul>
+<!--@example: ng2 - click to call methods -->
+<button (click)="toggleHobbies()">show Hobbies</button>
+
+<div *ngIf="showHobbies">
+   <h3>example </h3>
+   <ul>
+       <li *ngFor="let course of courses">
+        {{course}}
+       </li>
+   </ul>
+</div>
+
+<form>
+   <label> Name: </label>
+   <input type="text" name="name" [(ngModel)]="name"/>
+</form>
+
+<br/>
+<h3>Posts</h3>
+<div *ngFor="let post of posts">
+  <h3>{{post.title}}</h3>
+  <p>{{post.body}}</p>
+</div>
