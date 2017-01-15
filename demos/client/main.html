@@ -10,6 +10,8 @@
   {{> hello}}
   {{> info}}
   {{> test}}
+
+  {{> messageDisplay}}
 </body>
 
 <template name="hello">
@@ -23,6 +25,18 @@
   <p>You've pressed the button {{counter2}} times.</p>
 </template>
 
+<template name="messageDisplay">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter2}} times.</p>
+  <div>You have {{messageCount}} messages.</div>
+  {{#if hasMessages}}
+  {{> messagesList data = messages}} {{/if}}
+
+</template>
+
+<template name ="messagesList">
+  <div> This one needs to be coded... </div>
+</template>
 
 <template name="info">
   <h2>Learn Meteor!</h2>

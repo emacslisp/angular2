@@ -40,3 +40,29 @@ Template.test.events({
     instance.counter2.set(instance.counter2.get() + 1);
   },
 });
+
+
+
+Template.messageDisplay.onCreated(function helloOnCreated() {
+  // counter starts at 0
+  this.counter2 = new ReactiveVar(0);
+});
+
+Template.messageDisplay.helpers({
+  messageCount:function() {
+    return 2;
+  },
+  hasMessage: function() {
+    return true;
+  },
+  messages : function(p1,p2) {
+    return ['Hello','Important Message'];
+  },    
+});
+
+Template.messageDisplay.events({
+  'click button'(event, instance) {
+    // increment the counter when button is clicked
+    instance.counter2.set(instance.counter2.get() + 1);
+  },
+});
