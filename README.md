@@ -1,3 +1,3 @@
 # angular2
 
-This repos mainly for angular js 2
+This repos mainly for meteor js 2 example
