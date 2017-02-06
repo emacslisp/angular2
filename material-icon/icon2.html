@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Material+Icons|Source+Sans+Pro' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+<i class="material-icons">favorite</i>
+<div id="result">Checking...</div>
+<script src="https://rawgit.com/bramstein/fontfaceobserver/master/fontfaceobserver.js"></script>
+<script>
+var fontObservers = [
+    new FontFaceObserver('Material Icons'),
+    new FontFaceObserver('Source Sans Pro')
+];
+var resultElm = document.getElementById('result');
+
+Promise.all(fontObservers.map(function(observer) {
+    return observer.check(null, 5000);
+})).then(function() {
+  resultElm.innerText = 'OK';
+}).catch(function() {
+  resultElm.innerText = 'Failed to load';
+});
+</script>
+</body>
