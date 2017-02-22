@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title></title>
+    <script src="money.js">
+    </script>
+
+    <script>
+
+fx.rates = {
+	"EUR" : 0.745101, // eg. 1 USD === 0.745101 EUR
+	"GBP" : 0.647710, // etc...
+        "HKD" : 7.781919,
+        "AED" : 3,
+	"USD" : 1,        // always include the base rate (1:1)
+
+}
+fx.base = "USD";
+//@example: this is very important
+fx.settings.from = "USD";
+fx.settings.to = "AED";
+
+      // From any currency, to any currency:
+      alert(fx.convert(12.99, {from: "GBP", to: "HKD"}));
+
+// Chaining sugar:
+      console.log(fx(1000).from("USD").to("GBP"));
+      console.log(fx(1000).to("AED"));
+      
+      // With simple settings and defaults, making this possible:
+      console.log(fx.convert(5318008));
+      console.log(fx(5318008).from("USD").to("AED"));
+    </script>
+    
+  </head>
+
+  <body>
+    
+  </body>
+</html> 
