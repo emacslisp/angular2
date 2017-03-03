@@ -1,9 +1,10 @@
-<!DOCTYPE HTML>
+
+<!DOCTYPE html>
 <html>
-<!--@example: svg example gaming -->  
+  
   <head>
     <script type="text/javascript">
-      // Global variables
+      // Global variables.
       var ballX = 150; // Ball x position.
       var ballY = 150; // Ball y position.
       var ballDX = 2; // Change in ball x position.
@@ -14,28 +15,60 @@
       var paddleH = 10; // Paddle height.
       var paddleD = boardY - paddleH; // Paddle depth.
       var paddleW = 150; // Paddle width.
-
+      var canvas; // Canvas element.
+      var ctx; // Canvas context.
+      var gameLoop; // Game loop time interval.
       // This function is called on page load.
 
 
-      function drawGameSVG() {
+      function drawGameCanvas() {
 
-        // Play the game until the ball stops.
-        gameLoop = setInterval(drawBall, 16);
+        // Get the canvas element.
+        canvas = document.getElementById("gameBoard");
 
-        // Add keyboard listener.
-        window.addEventListener('keydown', whatKey, true);
+        // Make sure you got it.
+        if (canvas.getContext) {
+          // Specify 2d canvas type.
+          ctx = canvas.getContext("2d");
+
+          // Play the game until the ball stops.
+          gameLoop = setInterval(drawBall, 16);
+
+          // Add keyboard listener.
+          window.addEventListener('keydown', whatKey, true);
+
+        }
       }
 
       function drawBall() {
 
+        // Clear the board.
+        ctx.clearRect(0, 0, boardX, boardY);
+
+        // Fill the board.
+        ctx.fillStyle = "thistle";
+        ctx.beginPath();
+        ctx.rect(0, 0, boardX, boardY);
+        ctx.closePath();
+        ctx.fill();
+
+        // Draw a ball.
+        ctx.fillStyle = "tomato";
+        ctx.beginPath();
+        ctx.arc(ballX, ballY, 15, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.fill();
+
+        // Draw the paddle.
+        ctx.fillStyle = "navy";
+        ctx.beginPath();
+        ctx.rect(paddleX, paddleD, paddleW, paddleH);
+        ctx.closePath();
+        ctx.fill();
 
         // Change the ball location.
         ballX += ballDX;
         ballY += ballDY;
-        ball.setAttribute("cx", ballX);
-        ball.setAttribute("cy", ballY);
-
 
         // Bounce on a left or right edge.
         if (ballX + ballDX > boardX - 15 || ballX + ballDX < 15) ballDX = -ballDX;
@@ -54,8 +87,6 @@
         }
       }
 
-
-
       // Get key press.
 
 
@@ -66,34 +97,26 @@
         case 37:
           paddleX = paddleX - 20;
           if (paddleX < 0) paddleX = 0;
-          paddle.setAttribute("x", paddleX);
           break;
 
           // Right arrow.
         case 39:
           paddleX = paddleX + 20;
           if (paddleX > boardX - paddleW) paddleX = boardX - paddleW;
-          paddle.setAttribute("x", paddleX);
           break;
         }
       }
     </script>
   </head>
   
-  <body onload="drawGameSVG()">
+  <body onload="drawGameCanvas()">
     <h1>
-      SVG Racketball
+      Canvas Racquetball
     </h1>
-    <!-- Create the SVG pane. -->
-    <svg xmlns="http://www.w3.org/2000/svg" height="300" width="300">
-      <!-- Create the board. -->
-      <rect x="1" y="1" width="298" height="298" fill="thistle" id="bpard" />
-      <!-- Create the ball. -->
-      <circle cx="150" cy="150" r="15" fill="tomato" id="ball" />
-      <!-- Create the paddle. -->
-      <rect x="150" y="290" width="150" height="10" fill="navy" id="paddle"
-      />
-    </svg>
+    <div>
+      <canvas id="gameBoard" width="300" height="300">
+      </canvas>
+    </div>
   </body>
 
 </html>
