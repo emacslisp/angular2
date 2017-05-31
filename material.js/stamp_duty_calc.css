@@ -1,0 +1,439 @@
+.eCo .primary-bg-color {
+    background-color: rgb(38, 38, 48);
+}
+
+.eCo .secondary-bg-color {
+    background-color: rgb(103, 98, 188);
+}
+
+.eCo .repayment-bg-color-origin {
+    background-color: rgb(255, 255, 255);
+}
+
+.eCo .repayment-bg-color {
+    background-color: rgb(248, 248, 249);
+}
+
+.eCo .repayment-bg-color-2 {
+    background-color: rgb(239, 239, 242);
+}
+
+.eCo .repayment-font-color {
+    color: rgb(255, 255, 255);
+}
+
+.eCo .secondary-font-color {
+    color: rgb(103, 98, 188);
+}
+
+.eCo .mdl-textfield__label {
+    text-transform: uppercase;
+    font-size: 12px !important;
+    top: -5px !important;
+
+    letter-spacing: 0.2px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.eCo .uppercase-label {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    
+}
+
+
+/*-------------------form -------------------------*/
+
+.eCo .outer-div {
+    padding-top: 30px;
+    text-align: center;
+    /*background-color: #f3f3f3;*/
+}
+
+.eCo .inner-div {
+    display: inline-block;
+    /*background-color: white;*/
+    border-radius: 3px;
+}
+
+.eCo .is-dirty .textfield-label, .is-focused .textfield-label {
+    color: rgb(255, 255, 255) !important;
+}
+
+.eCo .mdl-slider__container {
+    height: 0px;
+}
+
+.eCo .mdl-selectfield__select {
+    height: 45px;
+}
+
+.eCo .select_box {
+    height: 135px;
+    text-align: center;
+}
+
+.eCo .select_box .mdl-selectfield__box {
+    background: white;
+    top: 20px;
+    bottom: 25px;
+}
+
+.eCo .mdl-selectfield__box>i {
+    margin-top: 12px;
+    top: 0;
+}
+
+.eCo .mdl-selectfield__box .mdl-selectfield__box-value {
+    margin-top: 12px;
+    text-align: left;
+    margin-left:10px;
+}
+
+.mdl-selectfield__list-option-box ul>li {
+    text-align: left;
+    margin-left:10px;
+}
+
+.eCo .mdl-selectfield {
+    line-height: normal;
+}
+
+
+/*.mdl-cell{
+    border-style: solid;
+}*/
+
+.eCo .mdl-selectfield__label {
+    text-transform: uppercase;
+    font-size: 12px !important;
+    top: -5px !important;
+    color: white!important;
+
+    letter-spacing: 0.2px;
+    font-weight: 500;
+}
+
+.eCo .repayment-button_group {
+    margin: 0px;
+    padding: 0px;
+}
+
+.eCo .repayment-btn-accordion {
+    text-align: left;
+    width: 100%;
+    height: 65px;
+    background-color: rgb(103, 98, 188);
+}
+
+.eCo .mdl-textfield__label {
+    color: rgb(103, 98, 188);
+}
+
+.eCo .mdl-card__title-text {
+    text-align: center;
+    display: block;
+    padding: 30px;
+}
+
+.eCo .mdl-radio__label {
+    color: #757575;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.eCo input {
+    height: 35px;
+}
+
+.eCo .number-box input {
+    height: 18px;
+}
+
+.eCo .more-text-field-label {
+    padding-bottom: 5px;
+}
+
+.eCo .min-value {
+    padding-left: 10px;
+    float: left;
+    color: white;
+    font-size: 14px;
+}
+
+.eCo .max-value {
+    padding-right: 10px;
+    float: right;
+    color: white;
+    font-size: 14px;
+}
+
+.eCo .slider {
+    margin-bottom: 0;
+}
+
+.eCo .slider .slider-label {
+    margin-top: 0;
+}
+
+.eCo .sticky {
+    position: fixed;
+    width: 100%;
+    background: #efc47D;
+    z-index: 10;
+    top: -15px;
+}
+
+
+
+.eCo #extra_input .mdl-textfield {
+    padding-top: 0;
+}
+
+@media (max-width: 622px) {
+    .eCo #form_section .full-width-input {
+        width: 100%;
+        margin-left: 8px;
+    }
+    .eCo #form_section .sm-limit-size {
+        max-width: 350px;
+    }
+}
+
+
+/*--------------------Resutl section ----------------------*/
+
+.eCo #selected_state {
+    color: rgb(0, 167, 255);
+}
+
+.eCo table>thead th {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.eCo .mdl-textfield__input {
+    /*text-align: center;*/
+    padding-left: 10px;
+    border-style: solid;
+    border-color: rgb(242, 242, 249);
+    border-width: 1px;
+    max-width: calc(100% - 11px);
+
+    /*color: #3E69AF !important;*/
+    /*move color to html setting*/
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.eCo .input-text {
+    background-color: white;
+}
+
+.eCo .tabs-transformation {
+    transform: rotate(-90deg);
+    width: auto;
+    height: 0;
+}
+
+.eCo .result-title {
+    text-align: center;
+    padding-top: 50px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.eCo .result-title p {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.eCo .grid-item-center-align {
+    /*background: #bdbdbd;*/
+    /*padding: 30px 0;*/
+    text-align: center;
+    /*color: #424242;*/
+    font-weight: bold;
+}
+
+.eCo .circle-wrap-big {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-table;
+    box-shadow: 0px 0px 50px #e6e6e6;
+}
+
+.eCo .result-body {
+    font-size: 24px;
+    margin: 10px;
+    padding-bottom: 10px;
+    /*text-transform: uppercase;*/
+}
+
+@media (max-width: 480px) {
+    .eCo .button-margin {
+        margin-left: 10px;
+    }
+    .eCo .circle-wrap-big {
+        width: 160px;
+        height: 160px;
+    }
+    .eCo .result-body {
+        font-size: 20px;
+    }
+    .eCo .mdl-textfield {
+        width: 400px !important;
+    }
+
+    .eCo .mdl-selectfield {
+        width: 400px !important;
+    }
+
+
+    .eCo #form_section .full-width-input {
+        margin:0;
+        margin-top: 18px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 840px) {
+    .eCo .mdl-textfield {
+        width: 300px !important;
+    }
+
+    .eCo .mdl-selectfield {
+        width: 300px !important;
+    }
+
+    .eCo .slider-label,
+    .eCo .slider {
+        max-width:310px;
+    }
+
+    .eCo .outer-div,
+    .eCo .select_box {
+        text-align: initial;
+    }
+
+    .mdl-cell--3-col-tablet.mdl-cell--3-col-tablet {
+        width: calc(50% - 16px)
+    }
+
+}
+
+@media (min-width: 840px) {
+    .eCo .circle-results-container {
+        max-width: 350px;
+    }
+    .eCo .circle-wrap-big {
+        width: 180px;
+        height: 180px;
+    }
+    .eCo .circler-outer-position-1 {
+        position: relative;
+        top: 35px;
+        z-index: 1;
+    }
+    .eCo .circler-outer-position-2 {
+        position: relative;
+        z-index: 2;
+    }
+    .eCo .circler-outer-position-3 {
+        position: relative;
+        top: -35px;
+        z-index: 1;
+    }
+    .eCo .circle-wrap-big .result-body {
+        font-size: 25px;
+        margin: 10px;
+        padding-bottom: 10px;
+        font-weight: 400;
+    }
+}
+
+.eCo .circle-inner-title-2 {
+    font-size: 12px;
+    margin: 10px;
+    padding-top: 25px;
+    text-transform: uppercase;
+}
+
+.eCo .circle-wrap {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-table;
+    box-shadow: 0px 0px 50px #e6e6e6;
+}
+
+.eCo .circle-wrap div, .circle-wrap-big div {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.eCo .circle-wrap div span, .circle-wrap-big div span {
+    display: block;
+}
+
+.eCo .result-title-circle {
+    font-size: 12px;
+    margin: 10px;
+    padding-top: 25px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.eCo .mdl-data-table {
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+@media (max-width: 572px) {
+    .eCo .adjust-table {
+        width: 100%;
+    }
+}
+
+@media (min-width: 640px) {
+    #concessionsTable {
+        left: 10px;
+    }
+}
+
+.eCo .graph-container {
+    text-align: center;
+}
+
+.eCo .mdl-data-table tbody tr {
+    height: 0;
+}
+
+.eCo .result-label {
+    font-size: 20px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+       div.mdl-selectfield__box
+       {      
+          height:45px;
+       }
+}
+
+
+.mdl-selectfield__box .mdl-selectfield__box-value {
+    font-weight: 400;
+}
+
+#concessions {
+    font-weight: 400 !important;
+    font-size: 20px !important;
+}
