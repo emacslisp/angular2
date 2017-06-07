@@ -12,6 +12,10 @@ Template.hello.helpers({
   counter() {
     return Template.instance().counter.get();
   },
+  test() {
+    var d = new Date();
+    return d.getDate();
+  }
 });
 
 Template.hello.events({
