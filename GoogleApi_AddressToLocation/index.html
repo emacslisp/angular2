@@ -1,0 +1,110 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<title>Reverse Geocoding</title> 
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript"> 
+  var geocoder;
+
+  var ipAddress = "58.162.47.11";
+  
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+} 
+//Get the latitude and the longitude;
+function successFunction(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    codeLatLng(lat, lng)
+}
+
+function errorFunction(){
+    alert("Geocoder failed");
+}
+
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+
+
+
+  }
+
+
+  
+
+  function codeLatLng(lat, lng) {
+
+    var latlng = new google.maps.LatLng(lat, lng);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+      console.log(results)
+        if (results[1]) {
+         //formatted address
+         alert(results[0].formatted_address)
+        //find country name
+             for (var i=0; i<results[0].address_components.length; i++) {
+            for (var b=0;b<results[0].address_components[i].types.length;b++) {
+
+            //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
+                if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+                    //this is the object you are looking for
+                    city= results[0].address_components[i];
+                    break;
+                }
+            }
+        }
+        //city data
+        alert(city.short_name + " " + city.long_name)
+
+
+        } else {
+          alert("No results found");
+        }
+      } else {
+        alert("Geocoder failed due to: " + status);
+      }
+    });
+  }
+</script>
+
+<script type="text/javascript" src="http://www.google.com/jsapi?key=YOURKEY"></script>
+ 
+<script type="text/javascript">
+ 
+function geoTest() {
+ 
+    if (google.loader.ClientLocation) {
+         
+        var latitude = google.loader.ClientLocation.latitude;
+        var longitude = google.loader.ClientLocation.longitude;
+        var city = google.loader.ClientLocation.address.city;
+        var country = google.loader.ClientLocation.address.country;
+        var country_code = google.loader.ClientLocation.address.country_code;
+        var region = google.loader.ClientLocation.address.region;
+       
+        var text = 'Your Location<br /><br />Latitude: ' + latitude + '<br />Longitude: ' + longitude + '<br />City: ' + city + '<br />Country: ' + country + '<br />Country Code: ' + country_code + '<br />Region: ' + region;
+     
+    } else {
+         
+        var text = 'Google was not able to detect your location';
+     
+    }
+     
+    document.write(text);
+ 
+}
+ 
+geoTest();
+ 
+</script>
+
+
+</head> 
+<body onload="initialize()"> 
+
+</body> 
+</html> 
