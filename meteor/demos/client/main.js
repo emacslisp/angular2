@@ -19,6 +19,13 @@ Template.hello.helpers({
 
   currentTime: function() {
     return Session.get('now');
+  },
+
+  comments: function() {
+     return [
+        {title: 'Some comment', author:'Jane'},
+        {title: 'Another one', author: 'Ted'}
+     ];
   }
 
 });
@@ -29,6 +36,24 @@ Template.hello.events({
     instance.counter.set(instance.counter.get() + 1);
   },
 });
+
+Template.messageDisplay.helpers({
+    sessionMessage: function () {
+       return Session.get('message');
+    }
+});
+
+Template.messageDisplay.events({
+    'click .nice': function() {
+        console.log('click .nice');
+        Session.set('message','Hello!');
+   },
+    'click .cute': function() {
+        console.log('click .cute');        
+        Session.set('message','I love you.');
+   }
+});
+
 
 Meteor.setInterval(function() {
    var currentDate = new Date();
