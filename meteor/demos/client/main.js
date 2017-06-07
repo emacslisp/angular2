@@ -15,7 +15,12 @@ Template.hello.helpers({
   test() {
     var d = new Date();
     return d.getDate();
+  },
+
+  currentTime: function() {
+    return Session.get('now');
   }
+
 });
 
 Template.hello.events({
@@ -24,3 +29,8 @@ Template.hello.events({
     instance.counter.set(instance.counter.get() + 1);
   },
 });
+
+Meteor.setInterval(function() {
+   var currentDate = new Date();
+   Session.set('now',currentDate.toLocaleTimeString());
+},1000);
