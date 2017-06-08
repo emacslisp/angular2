@@ -6,6 +6,7 @@
   <h1>Welcome to Meteor!</h1>
 
   {{> hello}}
+  {{> books}}
   {{> messageDisplay}}  
   {{> info}}
 
@@ -29,6 +30,17 @@
   <button class = "nice"> be nice</button>
   <button class = "cute"> be cute</button>  
 </template>
+
+<template name="books">
+   <h2>books</h2>
+   <ul>
+      {{#each book in books}}
+      <li>{{book.title}}
+      </li>
+      {{/each}}
+   </ul>
+</template>
+
 
 <template name="info">
   <h2>Learn Meteor!</h2>

@@ -59,3 +59,17 @@ Meteor.setInterval(function() {
    var currentDate = new Date();
    Session.set('now',currentDate.toLocaleTimeString());
 },1000);
+
+Books = new Meteor.Collection('books');
+
+if(Meteor.isClient) {
+    Template.books.helpers({
+
+       books: function () {
+           console.log('books');
+
+           return Books.find();
+    }
+   });
+
+}
