@@ -70,6 +70,5 @@ if(Meteor.isClient) {
 
            return Books.find();
     }
-   });
-
+    });
 }
