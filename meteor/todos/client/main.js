@@ -51,3 +51,17 @@ Template.hello.events({
     instance.counter.set(instance.counter.get() + 1);
   },
 });
+
+Template.register.events({
+    'submit form': function(){
+        // code goes here
+        event.preventDefault();
+        var email = $('[name=email]').val();
+        var password = $('[name=password]').val();
+
+        Accounts.createUser({
+            email: email,
+            password: password
+        });
+    }
+});
