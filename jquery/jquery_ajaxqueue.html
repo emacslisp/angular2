@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>
+      Multiple 
+    </title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"/>
+    <script>
+       $.extend({
+            getMultiCss: function(urls, nocache){console.trace();
+                if (typeof nocache=='undefined') nocache = false; // default don't refresh
+                return $.when.apply($,
+                    $.map(urls, function(url){console.trace();
+                        if (nocache) url += '?_ts=' + new Date().getTime(); // refresh?
+                        return $.Deferred(function( deferred ){console.trace();
+                            $('<link>', {rel:'stylesheet', 'href':self.LOADER.getFormattedUrl(url)}).appendTo('head');//type:'text/css',
+                            self.log("Css Loaded", url);
+                            $( deferred.resolve );
+                        });
+                    })
+                );
+            },
+            ajaxQueue: function () {console.trace();
+                var previous = $.Deferred().resolve();
+
+                return function (fn, fail) {console.trace();
+                    if (typeof fn !== 'function') {console.trace();
+                        throw 'must be a function';
+                    }
+
+                    return previous = previous.then(fn, fail || fn);
+                };
+            }
+        });
+    </script>
+    <script>
+      $(document).ready(function(){
+      var test  =  $.ajaxQueue();
+      alert(test);
+      });
+    </script>
+  </head>
+
+  <body>
+    
+  </body>
+</html> 
