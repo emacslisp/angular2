@@ -6,6 +6,50 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js"> </script>
 
     <script>
+      self.LOADER  =  new function() {
+      this.getFormattedUrl = function(url){
+                  if(url.toLowerCase().indexOf('http') === 0 || url.toLowerCase().indexOf('https') === 0 || url.indexOf('//') === 0 ){
+                return url;
+            }else{
+                if(url.indexOf('/') === 0){
+                    //console.log(self.params.host + url);
+                    //return self.params.host + url;
+                    return "http://localhost:3101"  +  url;
+                }else{
+                    //console.log('else',self.params.host + url);
+                    //return self.params.host + '/' + url;//.substring(1, url.length);
+                    return "http://localhost:3101" + '/' + url;
+                }
+            }
+      };
+          
+      };
+
+          self.log = function(){
+        var logArr = null, forceDisplay = false;
+        if(arguments && arguments.length > 0 && arguments[arguments.length-1] === true){
+            logArr = Array.prototype.slice.call(arguments).slice(0,arguments.length-1);
+            forceDisplay = true;
+        }else{
+            logArr = Array.prototype.slice.call(arguments);
+        }
+        if(self.options.debug || forceDisplay){
+            var str = '';
+            logArr.forEach(function(entry){
+                if(typeof entry === 'object'){
+                    try{
+                        str = str.concat(' ',JSON.stringify(entry));
+                    }catch(e){
+                        str = str.concat(' ', entry);
+                    }
+                }else{
+                    str = str.concat(' ', entry);
+                }
+            })
+            console.log(str.trim());
+        }
+    };
+      
       var extend  =  function() {
       $.extend({
             getMultiCss: function(urls, nocache){console.trace();
@@ -38,9 +82,38 @@
       $(document).ready(function(){
       
           debugger;
-          extend();
-          var test  =  $.ajaxQueue();
-          alert(test);
+      extend();
+
+    self.dependencies = {
+        css: [],
+        js: [],
+        data: []
+    };
+
+      self.dependencies.css.push(['https://fonts.googleapis.com/icon?family=Material+Icons','/library/mdl/default/mdl-scoped.min.css']);
+      self.dependencies.js.push(['/library/mdl/material.min.js']);
+
+      
+      var test  =  $.ajaxQueue();
+      alert(test);
+
+      var fileDependenciesQueue  =  $.ajaxQueue();
+
+                self.dependencies.js.forEach(function(dependencyUrls){console.trace();
+                    dependencyUrls.forEach(function(url){console.trace();//run all js next
+                        fileDependenciesQueue(function(){console.trace();
+                            return  $.getScript(self.LOADER.getFormattedUrl(url)).done(function (response) {console.trace();
+                                console.log('Js Loaded', self.LOADER.getFormattedUrl(url));
+                            });
+                            //return $.getScript.apply(window, [self.LOADER.getFormattedUrl(url)]).done(function (response) {console.trace();
+                            //    self.log('Js Loaded', self.LOADER.getFormattedUrl(url));
+                            //});
+                        })
+                    });
+      fileDependenciesQueue(self.LOADER.loadDependenciesPromisesCompletion);//attach completion callback
+      });
+      
+      
       });
     </script>    
     
