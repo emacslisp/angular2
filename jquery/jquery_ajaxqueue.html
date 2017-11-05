@@ -3,9 +3,11 @@
     <title>
       Multiple 
     </title>
-    <script src="https://code.jquery.com/jquery-3.2.1.js"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"> </script>
+
     <script>
-       $.extend({
+      var extend  =  function() {
+      $.extend({
             getMultiCss: function(urls, nocache){console.trace();
                 if (typeof nocache=='undefined') nocache = false; // default don't refresh
                 return $.when.apply($,
@@ -30,17 +32,22 @@
                     return previous = previous.then(fn, fail || fn);
                 };
             }
-        });
-    </script>
-    <script>
-      $(document).ready(function(){
-      var test  =  $.ajaxQueue();
-      alert(test);
       });
-    </script>
+      };
+      
+      $(document).ready(function(){
+      
+          debugger;
+          extend();
+          var test  =  $.ajaxQueue();
+          alert(test);
+      });
+    </script>    
+    
+
   </head>
 
   <body>
-    
+    <p> loaded</p>
   </body>
 </html> 
