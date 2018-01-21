@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Ractive.js</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/ractive"></script>
+
+    
+
+  </head>
+
+  <body>
+    <div id="target"></div>
+    
+    <script id="template" type="text/ractive">
+      <p>{{greeting}}, {{name}}!</p>
+    </script>
+
+    <script>
+      var ractive = new Ractive({
+      target: '#target',
+      template: '#template',
+      data: { greeting: 'Hello', name: 'world' }
+      });
+    </script>
+        
+  </body>
+</html> 
