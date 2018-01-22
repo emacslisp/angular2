@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "one-ui": "0.0.0",
     "ractive": "^0.9.11"
   }
 }
