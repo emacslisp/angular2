@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+  <meta charset='utf-8'>
+  <title>Creating Components</title>
+  <link rel='stylesheet' href='css/checkbox.css'>
+</head>
+<body>
+  <h1>Creating a Checkbox Component</h1>
+  
+  <div id='container'></div>
+
+  <div id="target"></div>
+  <script id="template" type="text/ractive">
+	<label>
+	  <input type='checkbox' checked="{{checked}}">
+	  {{#if checked}}checked!{{else}}not checked{{/if}}
+	</label>
+	
+	<fieldset>
+	  <label><input type='radio' name = "{{color}}" value='red' checked> red</label>
+	  <label><input type='radio' name = "{{color}}" value='green'> green</label>
+	  <label><input type='radio' name = "{{color}}" value='blue'> blue</label>
+	  <p>The selected colour is <span style='color: {{color}};'>{{color}}</span>.</p>
+	</fieldset>
+  </script>
+
+  <script src='js/ractive.min.js'></script>
+  <script src='js/radio.js'></script>
+</body>
+</html>

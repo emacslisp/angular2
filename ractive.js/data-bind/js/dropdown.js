@@ -7,6 +7,7 @@ var ractive = new Ractive({
   		{ name: '8 x 6 inch', value: 5.18 },
   		{ name: '10 x 8 inch', value: 9.88 }
 		],
+                textValue: '',
 		size: 'A4'
 	}
 });

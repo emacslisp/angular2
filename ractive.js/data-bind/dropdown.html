@@ -18,6 +18,11 @@
     </ul>
   
     <p class="sizes">Sizes available:</p>
+
+    <input type="text" value = '{{textValue}}'/>
+
+    <button type="button" {{textValue ==  ''? '': 'disabled' }}>Button</button>
+    
     <select value='{{avsize}}'>
       {{#each avsizes}}
         <option value="{{this.value}}">{{this.name}}</option>

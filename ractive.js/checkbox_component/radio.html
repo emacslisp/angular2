@@ -1,0 +1,15 @@
+<div id="target"></div>
+
+<script id="template" type="text/ractive">
+	<label>
+	  <input type='checkbox'>
+	  {{#if checked}}checked!{{else}}not checked{{/if}}
+	</label>
+	
+	<fieldset>
+	  <label><input type='radio' value='red' checked> red</label>
+	  <label><input type='radio' value='green'> green</label>
+	  <label><input type='radio' value='blue'> blue</label>
+	  <p>The selected colour is <span style='color: {{color}};'>{{color}}</span>.</p>
+	</fieldset>
+</script>
